@@ -1,0 +1,15 @@
+mixin auct(i)
+    li(class=`auct auct-${i}`)
+        div.date Дата начала: #{auct[i].date}
+        div.picpart Название лота: #{pictures[auct[i].pic].name}
+        p Таймаут 
+        div.timeout(contenteditable = "true") #{auct[i].timeout}
+        p Интервал
+        div.interval(contenteditable = "true") #{auct[i].interval}
+        p Пауза
+        div.pause(contenteditable = "true") #{auct[i].pause}
+        div.button__delete() Удалить
+
+ol.auct-list
+    - for (let i = 0; i < auct.length; ++i)
+        +auct(i)

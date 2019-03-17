@@ -1,0 +1,9 @@
+mixin user(i)
+    li(class=`user user-${i}`)
+        div.name(contenteditable = "true") #{users[i].name}
+        div.money(contenteditable = "true") #{users[i].money}
+        div.button__delete(onClick=`del(${i})`) Удалить
+
+ol.user-list
+    - for (let i = 0; i < users.length; ++i)
+        +user(i)

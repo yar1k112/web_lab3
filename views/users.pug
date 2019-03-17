@@ -1,0 +1,23 @@
+html
+    head
+        link(rel="stylesheet" type="text/css" href="stylesheets/main.min.css")
+        meta(charset="utf-8")
+        title Аукцион
+        script(src="https://code.jquery.com/jquery-3.3.1.min.js")
+    body
+        include header
+        div.container
+            dialog(id="modal-window-add") 
+                form(method="dialog" id="modal-window-add-form")
+                    p.modal__title Новый участник
+                    div.name
+                        p Имя
+                        input(type="text" name="title" required form="modal-window-add")
+                    div.money
+                        p Сбережения
+                        input(type="text" name="author" required form="modal-window-add")
+                    div.button__ok(form="modal-window-add-form") Добавить
+            div.helper
+                include usersContent
+            div.user__button Добавить участника
+        script(src="js/users.js")

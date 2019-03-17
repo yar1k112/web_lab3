@@ -1,0 +1,18 @@
+mixin picture(i)
+    //- img(src=`${pictures[i].link}`)
+    //- br
+    p.string0 #{pictures[i].author} 
+    p.string1 #{pictures[i].name} 
+    p.string2 #{pictures[i].description}
+    p.help Начальная ставка: 
+        p.string3 #{pictures[i].begin}
+    p Шаг: 
+        p.string4 #{pictures[i].step}
+
+div.content
+    - for (let i = 0; i < pictures.length; ++i)
+        div(class=`card card-${i}`) 
+            div(class=`front front-${i}`)
+                img(src=`${pictures[i].link}`)
+            div.back(contenteditable="true")
+                +picture(i)

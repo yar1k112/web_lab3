@@ -1,0 +1,41 @@
+mixin user(i) 
+    input(type="checkbox" name=`${users[i].id}`)
+    p #{users[i].name}
+
+
+html
+    head
+        link(rel="stylesheet" type="text/css" href="stylesheets/main.min.css")
+        meta(charset="utf-8")
+        title Аукцион
+        script(src="https://code.jquery.com/jquery-3.3.1.min.js")
+    body
+        include header
+        div.container
+            dialog(id="modal-window-add") 
+                form(method="dialog" id="modal-window-add-form")
+                    p.modal__title Новый лот
+                    p дата
+                    div.auctdate
+                        input(type="datetime-local" name="title" required form="modal-window-add")
+                    p id картины
+                    div.auctpicture
+                        input(type="text" name="title" required form="modal-window-add")
+                    p timeout
+                    div.aucttimeout
+                        input(type="text" name="title" required form="modal-window-add")
+                    p interval 
+                    div.auctinterval 
+                        input(type="text" name="title" required form="modal-window-add")
+                    p pause
+                    div.auctpause
+                        input(type="text" name="title" required form="modal-window-add")
+                    //- div.auctpart
+                    //-     p  Участники
+                    //-     - for (let i = 0; i < users.length; ++i)
+                    //-         +user(i)
+                    div.button__ok(form="modal-window-add-form") Добавить
+            div.helper
+                include auctContent
+            div.auct__button Добавить аукцион
+        script(src="js/auct.js")
